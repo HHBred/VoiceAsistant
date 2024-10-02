@@ -1,5 +1,0 @@
-playsound
-gtts
-SpeechRecognition
-pyautogui
-pillow 
