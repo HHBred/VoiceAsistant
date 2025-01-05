@@ -3,3 +3,4 @@ gtts
 SpeechRecognition
 pyautogui
 pillow 
+pyaudio
