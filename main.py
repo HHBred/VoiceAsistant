@@ -208,7 +208,8 @@ def response(voice):
            os.startfile("com.epicgames.launcher://apps/0584d2013f0149a791e7b9bad0eec102%3A6e563a2c0f5f46e3b4e88b5f4ed50cca%3A9d2d0eb64d5c44529cece33fe2a46482?action=launch&silent=true")
            speak("İstediğin uygulamayı çalıştırıyorum.")
         elif "spotify" in runApp:
-           os.startfile("steam://rungameid/2551020")
+           webbrowser.get().open(url2)
+           url2 = "https://open.spotify.com/"
            speak("İstediğin uygulamayı çalıştırıyorum.")
         elif "mafya2" in runApp:
            uygulama_calistir1()
