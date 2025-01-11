@@ -29,6 +29,91 @@ def take_screenshot():
     screenshot.save("ekran_goruntusu.png")
     speak("Ekran görüntüsü alındı ve kaydedildi.")
 
+def dosya_taramasi_tum_surucu(dizin, aranan_kelime):
+    for root, _, files in os.walk(dizin):
+        for file in files:
+            if aranan_kelime.lower() in file.lower():
+                return os.path.join(root, file)  # İlk eşleşmeyi döndür
+    return None
+
+def uygulama_calistir():
+    """
+    "darkorbit" anahtar kelimesiyle tüm `C:` sürücüsünde bir dosya arar ve bulursa çalıştırır.
+    """
+    dizin_yolu = "C:\\"  # Tarama yapılacak sürücü
+    aranan_kelime = "darkorbit.exe"  # Aranacak anahtar kelime
+    
+    print("Tüm sürücülerde arama yapılıyor, lütfen bekleyin...")
+    
+    # Dosyayı tara ve bul
+    uygulama_yolu = dosya_taramasi_tum_surucu(dizin_yolu, aranan_kelime)
+
+def uygulama_calistir1():
+    """
+    "MAFYA2" anahtar kelimesiyle tüm `E:` sürücüsünde bir dosya arar ve bulursa çalıştırır.
+    """
+    dizin_yolu = "C:\\"
+    dizin_yolu = "D:\\"
+    dizin_yolu = "E:\\"
+    dizin_yolu = "F:\\"  # Tarama yapılacak sürücü
+    aranan_kelime = "mafia2.exe"  # Aranacak anahtar kelime
+    
+    print("Tüm sürücülerde arama yapılıyor, lütfen bekleyin...")
+    
+    # Dosyayı tara ve bul
+    uygulama_yolu = dosya_taramasi_tum_surucu(dizin_yolu, aranan_kelime)
+    
+    if uygulama_yolu:
+        print(f"Uygulama bulundu: {uygulama_yolu}")
+        os.startfile(uygulama_yolu)  # Uygulamayı çalıştır
+        speak("İstediğin uygulamayı çalıştırıyorum.")
+    else:
+        speak(f"{aranan_kelime} adlı dosya bulunamadı") 
+
+def uygulama_calistir2():
+    """
+    "gta sa" anahtar kelimesiyle tüm `E:` sürücüsünde bir dosya arar ve bulursa çalıştırır.
+    """
+    dizin_yolu = "C:\\"
+    dizin_yolu = "D:\\"
+    dizin_yolu = "E:\\"
+    dizin_yolu = "F:\\"  # Tarama yapılacak sürücü
+    aranan_kelime = "gta-sa.exe"  # Aranacak anahtar kelime
+    
+    print("Tüm sürücülerde arama yapılıyor, lütfen bekleyin...")
+    
+    # Dosyayı tara ve bul
+    uygulama_yolu = dosya_taramasi_tum_surucu(dizin_yolu, aranan_kelime)
+    
+    if uygulama_yolu:
+        print(f"Uygulama bulundu: {uygulama_yolu}")
+        os.startfile(uygulama_yolu)  # Uygulamayı çalıştır
+        speak("İstediğin uygulamayı çalıştırıyorum.")
+    else:
+        speak(f"{aranan_kelime} adlı dosya bulunamadı") 
+ 
+def uygulama_calistir3():
+    """
+    "speed.exe" anahtar kelimesiyle tüm `E:` sürücüsünde bir dosya arar ve bulursa çalıştırır.
+    """
+    dizin_yolu = "C:\\"
+    dizin_yolu = "D:\\"
+    dizin_yolu = "E:\\"
+    dizin_yolu = "F:\\" # Tarama yapılacak sürücü
+    aranan_kelime = "speed.exe"  # Aranacak anahtar kelime
+    
+    print("Tüm sürücülerde arama yapılıyor, lütfen bekleyin...")
+    
+    # Dosyayı tara ve bul
+    uygulama_yolu = dosya_taramasi_tum_surucu(dizin_yolu, aranan_kelime)
+    
+    if uygulama_yolu:
+        print(f"Uygulama bulundu: {uygulama_yolu}")
+        os.startfile(uygulama_yolu)  # Uygulamayı çalıştır
+        speak("İstediğin uygulamayı çalıştırıyorum.")
+    else:
+        speak(f"{aranan_kelime} adlı dosya bulunamadı")
+
 def response(voice):
     if "merhaba" in voice:
         speak("sanada merhaba")
@@ -53,7 +138,6 @@ def response(voice):
     if "ekran görüntüsü al" in voice:
         take_screenshot()  
        
-
     if "günlerden ne" in voice or "bugün günlerden ne" in voice:
        today = time.strftime("%A")
        today = today.capitalize()  
@@ -77,8 +161,6 @@ def response(voice):
     if "youtube aç" in voice:
      webbrowser.open("https://www.youtube.com")
      speak("YouTube açıldı.")
-
-
 
     if "google'da ara" in voice or "internet'te ara"in voice:
        speak("ne aramamı istersin?")
@@ -108,7 +190,7 @@ def response(voice):
        speak("sola gidiliyor")
        for _ in range(10):
          pyautogui.press('a')
-
+ 
     if "uygulama aç" in voice:
         speak("Hangi uygulamayı açmamı istiyorsun?")
         runApp = record()
@@ -119,9 +201,6 @@ def response(voice):
         elif "life is strange" in runApp:
             os.startfile("steam://rungameid/319630")
             speak("İstediğin uygulamayı çalıştırıyorum.")
-        elif "mafya" in runApp:
-           os.startfile("steam://rungameid/40990")
-           speak("İstediğin uygulamayı çalıştırıyorum.")
         elif "tek kol" in runApp:
            os.startfile("steam://rungameid/2551020")
            speak("İstediğin uygulamayı çalıştırıyorum.")
@@ -131,34 +210,32 @@ def response(voice):
         elif "spotify" in runApp:
            os.startfile("steam://rungameid/2551020")
            speak("İstediğin uygulamayı çalıştırıyorum.")
-        elif "mafya 2" in runApp:
-           os.startfile("D:\\Games\\Mafia 2\\launcher.exe")
+        elif "mafya2" in runApp:
+           uygulama_calistir1()
            speak("İstediğin uygulamayı çalıştırıyorum.")
         elif "darkorbit" in runApp:
-           os.startfile("C:\\Users\\ali osman\\Dark Orbit\\DarkOrbit.exe")
+           uygulama_calistir()
+        elif "need" in runApp:
+           uygulama_calistir3()
            speak("İstediğin uygulamayı çalıştırıyorum.")
         elif "asetto" in runApp:
            os.startfile("steam://rungameid/244210")
            speak("İstediğin uygulamayı çalıştırıyorum.")
         elif "gta san andreas" in runApp:
-           os.startfile("C:\Program Files (x86)\MTA San Andreas 1.6")
-           speak("İstediğin uygulamayı çalıştırıyorum.")
-
+              uygulama_calistir2()
+              speak("İstediğin uygulamayı çalıştırıyorum.")
         else:
             speak("İstediğin uygulama çalıştırma listemde yok.")
         
     if "not et" in voice:
         speak("Dosya ismi ne olsun?")
-        txtFile = record() + ".txt"
+        txtFile = record() + "a.txt"
         speak("Başla")
         theText = record()
         
         # Correct file handling
         with open(txtFile, "w", encoding="utf-8") as f:
             f.write(theText)
-
-
-
 
 def speak(string):
     tts = gTTS(text=string, lang="tr", slow=False)
@@ -170,12 +247,9 @@ def speak(string):
 playsound("DING.mp3")
 speak("Sizi dinliyorum")
 
-
-
 while True:
     voice = record()
     if voice:
-        voice =voice.lower()
+        voice = voice.lower()
         print(voice.capitalize())
         response(voice)
-
