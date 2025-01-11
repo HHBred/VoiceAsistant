@@ -38,7 +38,7 @@ def dosya_taramasi_tum_surucu(dizin, aranan_kelime):
 
 def uygulama_calistir():
     """
-    "darkorbit" anahtar kelimesiyle tüm `C:` sürücüsünde bir dosya arar ve bulursa çalıştırır.
+    "darkorbit" anahtar kelimesiyle tüm  sürücülerde bir dosya arar ve bulursa çalıştırır.
     """
     dizin_yolu = "C:\\"  # Tarama yapılacak sürücü
     aranan_kelime = "darkorbit.exe"  # Aranacak anahtar kelime
@@ -50,7 +50,7 @@ def uygulama_calistir():
 
 def uygulama_calistir1():
     """
-    "MAFYA2" anahtar kelimesiyle tüm `E:` sürücüsünde bir dosya arar ve bulursa çalıştırır.
+    "MAFYA2" anahtar kelimesiyle tüm  sürücülerde bir dosya arar ve bulursa çalıştırır.
     """
     dizin_yolu = "C:\\"
     dizin_yolu = "D:\\"
@@ -72,7 +72,7 @@ def uygulama_calistir1():
 
 def uygulama_calistir2():
     """
-    "gta sa" anahtar kelimesiyle tüm `E:` sürücüsünde bir dosya arar ve bulursa çalıştırır.
+    "gta sa" anahtar kelimesiyle tüm  sürücülerde bir dosya arar ve bulursa çalıştırır.
     """
     dizin_yolu = "C:\\"
     dizin_yolu = "D:\\"
@@ -94,13 +94,35 @@ def uygulama_calistir2():
  
 def uygulama_calistir3():
     """
-    "speed.exe" anahtar kelimesiyle tüm `E:` sürücüsünde bir dosya arar ve bulursa çalıştırır.
+    "speed.exe" anahtar kelimesiyle tüm  sürücülerde bir dosya arar ve bulursa çalıştırır.
     """
     dizin_yolu = "C:\\"
     dizin_yolu = "D:\\"
     dizin_yolu = "E:\\"
     dizin_yolu = "F:\\" # Tarama yapılacak sürücü
     aranan_kelime = "speed.exe"  # Aranacak anahtar kelime
+    
+    print("Tüm sürücülerde arama yapılıyor, lütfen bekleyin...")
+    
+    # Dosyayı tara ve bul
+    uygulama_yolu = dosya_taramasi_tum_surucu(dizin_yolu, aranan_kelime)
+    
+    if uygulama_yolu:
+        print(f"Uygulama bulundu: {uygulama_yolu}")
+        os.startfile(uygulama_yolu)  # Uygulamayı çalıştır
+        speak("İstediğin uygulamayı çalıştırıyorum.")
+    else:
+        speak(f"{aranan_kelime} adlı dosya bulunamadı")
+
+def uygulama_calistir4():
+    """
+    "valorant" anahtar kelimesiyle tüm  sürücülerde bir dosya arar ve bulursa çalıştırır.
+    """
+    dizin_yolu = "C:\\"
+    dizin_yolu = "D:\\"
+    dizin_yolu = "E:\\"
+    dizin_yolu = "F:\\" # Tarama yapılacak sürücü
+    aranan_kelime = "RiotClientServices.exe"  # Aranacak anahtar kelime
     
     print("Tüm sürücülerde arama yapılıyor, lütfen bekleyin...")
     
